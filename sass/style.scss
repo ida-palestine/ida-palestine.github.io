@@ -1,0 +1,449 @@
+@charset 'UTF-8';
+@import 'base';
+
+/////////////
+// COLOR
+/////////////
+$sloan: (
+  dark: #0f060b,
+  main: #304d5f,
+  light: #d6e5ba,
+  accent: #7c2923,
+
+  width: 1070px
+);
+$foot: mix(map-get($sloan,'dark'),mix(white,map-get($sloan,'light'),25%),90%);
+$off: mix(map-get($sloan,'light'),map-get($sloan,'accent'),25%);
+$light: mix(white,map-get($sloan,'light'),25%);
+$back: mix(map-get($sloan,'dark'),$light,80%);
+
+header {
+  position: relative;
+  overflow: hidden;
+
+  text-align: center;
+
+  background: url(/wp-content/themes/1428268365/images/sloan.jpg) no-repeat center 72% scroll;
+  min-height: 180px;
+
+  @media screen and (min-width: map-get($sloan, 'width')){
+    -webkit-background-size: 100%;
+    -moz-background-size: 100%;
+    -o-background-size: 100%;
+    background-size: 100%;
+  }
+}
+
+.headline {
+  line-height: 100%;
+  margin-bottom: 2em;
+
+  color: white;
+}
+
+.subhead {
+  margin: 0;
+  padding-top: .5em;
+  padding-bottom: .5em;
+
+  text-transform: capitalize;
+  background-color: map-get($sloan, 'dark');
+  color: white;
+  a {
+    color: $light;
+  }
+}
+
+.headline {
+  margin: 0;
+  padding: .5em;
+
+  width: 33%;
+  float: left;
+
+  text-align: left;
+  color: white;
+}
+
+.head-left {
+  float: left;
+  width: 30%;
+  text-align: left;
+}
+.head-right {
+  float: right;
+  width: 30%;
+  text-align: right;
+}
+.go-home {
+  padding: .25em 1em;
+  width: 4em;
+
+  font-weight: bold;
+  text-decoration: none;
+  color: white;
+  background-color: map-get($sloan,'dark');
+  background-color: rgba(map-get($sloan,'dark'),.5);
+
+  border-style: solid;
+  border-width: 5px;
+  border-color: map-get($sloan,'dark');
+  @include border-bottom-right-radius(5px);
+}
+
+
+.meta,
+.meta-index {
+  float: left;
+  width: 25%;
+
+  background-color: $back;
+  color: white;
+  a {
+    color: $light;
+  }
+  @include border-bottom-right-radius(5px);
+  @include box-shadow(map-get($sloan,'dark') 0px 0px 3px);
+}
+
+ul.events {
+  margin: 0;
+  padding: .5em;
+  @include border-top-right-radius(5px);
+
+  color: map-get($sloan,'dark');
+  background-color: $light;
+  a {
+    color: $off;
+  }
+  .happening {
+    color: $off;
+  }
+}
+ul.events,
+li.event {
+  padding-left: 1em;
+  text-indent: -1em;
+
+  list-style-type: none;
+  list-style-position: outside;
+  span {
+    font-weight: bold;
+  }
+}
+nav.menu-menu-container {
+  padding: .25em 1.5em;
+
+  background-color: map-get($sloan,'dark');
+  font-size: 112.5%;
+  font-weight: bold;
+  color: $off;
+  a {
+    color: white;
+    text-decoration: none;
+  }
+}
+.meta p,
+.meta-index p {
+  margin-bottom: 0;
+  padding-left: .75em;
+  font-weight: bold;
+}
+ul.members,
+ul.projects {
+  margin-top: 0;
+
+  font-style: italic;
+}
+
+///// NO MORE HEADER NO MORE META STUFF
+main {
+  color: map-get($sloan, 'dark');
+  a {
+    color: $off;
+  }
+  h1,
+  h2,
+  h3 {
+    padding-left: 20%;
+    padding-right: 20%;
+
+    border-top: .1em solid map-get($sloan,'dark');
+    border-bottom: .1em solid map-get($sloan,'dark');
+    background-color: map-get($sloan,'dark');
+
+    color: white;
+    a {
+      color: white;
+    }
+  }
+}
+.read > * {
+  padding-left: 25%;
+  padding-right: 25%;
+}
+.read-index > * {
+  padding-left: 35%;
+  padding-right: 15%;
+}
+
+.entry-title {
+  margin-top: 0;
+}
+
+.site-footer {
+  clear: both;
+  position: relative;
+  overflow: hidden;
+
+  padding: 0 2% 0 2%;
+  text-align: left;
+
+  @include inline('|',.5em);
+
+  background-color: $foot;
+  border-top: .2em solid $foot;
+  border-bottom: .2em solid $foot;
+
+  color: $light;
+  a {
+    font-weight: bold;
+    color: $off;
+  }
+}
+
+.footer-text {
+  float: left;
+  width: 66%;
+}
+
+img.logo {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+}
+
+img,
+object,
+iframe {
+  max-width: 100%;
+  height: auto;
+}
+
+//////////////////////// media queries ..................///////////////
+//////////////////////// media queries ..................///////////////
+//////////////////////// media queries ..................///////////////
+@media screen and (max-width: $break1) {
+  .read > * {
+    padding-left: 20%;
+    padding-right: 20%;
+  }
+  .read-index > * {
+    padding-left: 30%;
+    padding-right: 10%;
+  }
+  .head-left {
+    width: 40%;
+  }
+  .head-right {
+    width: 40%;
+  }
+}
+@media screen and (max-width: $break2) {
+  .headline {
+    float: none;
+    width: 100%;
+    padding: 0;
+  }
+  div.membership,
+  div.projects,
+  ul.events {
+    @include hide;
+  }
+  div.meta-index {
+    float: none;
+    width: 100%;
+  }
+  nav.menu-menu-container {
+    background-color: $back;
+    padding: 0;
+    font-size: 150%;
+  }
+
+  .read > *,
+  .read-index > * {
+    padding-left: 15%;
+    padding-right: 15%;
+  }
+  .head-left,
+  .head-right {
+    width: 100%;
+    float: none;
+    text-align: left;
+  }
+  .go-home {
+    float: right;
+    padding-right: 3.5em;
+  }
+  div.projects {
+    padding-left: 1em;
+  }
+  nav {
+    margin: 0;
+    padding-top: .5em;
+    padding-bottom: .5em;
+
+    text-align: center;
+    background-color: map-get($sloan,'dark');
+
+    font-weight: bold;
+    font-size: 131.25%;
+  }
+  ul.nav {
+    margin: 0;
+
+    color: $off;
+    a {
+      color: white;
+      text-decoration: none;
+    }
+
+    @include inline('•',.5em);
+    -o-padding-start: 0;
+    -ms-padding-start: 0;
+    -moz-padding-start: 0;
+    -webkit-padding-start: 0;
+    padding-start: 0;
+  }
+
+  .site-footer {
+    text-align: left;
+    padding: 2em 2% 0 2%;
+  }
+  .footer-text {
+    float: none;
+    width: 100%;
+  }
+  img.logo {
+    position: static;
+  }
+}
+
+@media screen and (max-width: $break3) {
+  .read > *,
+  .read-index > * {
+    padding-left: 5%;
+    padding-right: 5%;
+  }
+  .go-home {
+    float: left;
+    clear: both;
+  }
+  // TODO make this forced specificity unecessary
+  div.header-search {
+    margin-bottom: 0;
+  }
+}
+
+///////////////////////////
+///////////////////// MISC
+///////////////////////////
+
+.screen-reader-text,
+.hidden {
+  @include hide;
+}
+
+time.title {
+  color: $light;
+  font-weight: normal;
+  font-style: italic;
+}
+
+.edit-link a {
+  color: $off;
+  text-decoration: none;
+  font-style: italic;
+}
+
+hr.major {
+  margin: 0;
+  color: $foot;
+  background-color: $foot;
+  border: .25em solid $foot;
+}
+hr.minor {
+  border: none;
+}
+
+.more {
+  background-color: $light;
+}
+.sub-footer,
+.index-footer {
+  text-align: center;
+}
+.index-footer,
+.sub-footer,
+.related {
+  font-style: italic;
+  a {
+    color: $off;
+  }
+}
+.index-footer {
+  margin: 0;
+
+  font-size: 131.25%;
+
+  font-weight: bold;
+  font-style: italic;
+  a {
+    text-decoration: none;
+  }
+}
+.related {
+  margin-bottom: 0;
+}
+
+.header-search {
+  display: inline-block;
+  float: right;
+  clear: both;
+  margin-bottom: .25em;
+}
+/* the search textbox */
+#s {
+  margin-right: -5px;
+  width: 10em;
+/* http://www.kirupa.com/html5/creating_an_awesome_search_box.htm */
+  padding: .1em;
+  border-style: solid;
+  border-width: 5px;
+  border-color: $off;
+}
+.header-search #s {
+  border-color: map-get($sloan,'dark');
+}
+/* the search button */
+#searchsubmit {
+  margin-left: 0;
+  width: 5em;
+  padding: .1em;
+
+  color: white;
+  font-weight: bold;
+
+  border-style: solid;
+  border-width: 5px;
+  border-left-width: 2px;
+
+  border-color: $off;
+  background-color: $off;
+}
+
+.header-search #searchsubmit {
+  border-color: map-get($sloan,'dark');
+  background-color: rgba(map-get($sloan,'dark'),.5);
+  @include border-bottom-right-radius(5px);
+}

@@ -1,0 +1,135 @@
+@charset "UTF-8";
+@import "compass";
+@import "normalize";
+
+@import url("http://fonts.googleapis.com/css?family=Alegreya:400italic,700italic,400,700");
+
+//// global styles
+body {
+  font-family: "Alegreya", Georgia, serif;
+}
+
+footer {
+  font-style: italic;
+  em {
+    font-style: normal;
+  }
+}
+
+img,
+object,
+iframe {
+  height: auto;
+  max-width: 100%;
+}
+
+// ==============
+// DIMENSIONS
+// ==============
+$break1: 1100px;
+$break2: 875px;
+$break3: 500px;
+
+/* ----------------------
+/* APPLY THESE EVERYWHERE
+/* -------------------- */
+/* apply a natural box layout model to all elements */
+// http://www.paulirish.com/2012/box-sizing-border-box-ftw/
+// YOU MIGHT HAVE TO SET BORDERS EVERYWHERE NOW
+*, *:before, *:after {
+  -moz-box-sizing: border-box; -webkit-box-sizing: border-box; box-sizing: border-box;
+}
+
+//////// MIXINS //////////////////
+@mixin hide {
+  position: absolute;
+  left: -999em;
+  /* apparently this second push is for old Opera:
+  /* http://css-tricks.com/snippets/css/accessibilityseo-friendly-css-hiding/ */
+  top: -999px;
+}
+
+@mixin inline($separator, $sep) {
+  ul, li {
+    /* http://www.alistapart.com/articles/taminglists/ */
+    display: inline;
+    margin: 0;
+    padding-left: 0;
+  }
+  li + li {
+    padding-left: $sep/2;
+    &::before {
+      font-style: normal;
+      content: $separator;
+      padding-right: $sep/2;
+    }
+  }
+}
+/* ------------------
+/* TEXT SIZING
+/* --------------- */
+body {
+  font-size: 16pt;
+}
+h1 {
+  font-size: 225%;
+}
+h2 {
+  font-size: 150%;
+}
+h3 {
+  font-size: 131.25%;
+}
+h4,
+h5,
+h6 {
+  font-size: 112.5%;
+}
+h5,
+h6 {
+  font-style: italic;
+}
+h6 {
+  font-weight: normal;
+}
+
+//// MEDIA QUERIES
+@media screen and (max-width: $break2) {
+  body {
+    font-size: 14pt;
+  }
+  h1 {
+    font-size: 225%;
+  }
+  h2 {
+    font-size: 150%;
+  }
+  h3 {
+    font-size: 131.25%;
+  }
+  h4,
+  h5,
+  h6 {
+    font-size: 112.5%;
+  }
+}
+
+@media screen and (max-width: $break3) {
+  body {
+    font-size: 12pt;
+  }
+  h1 {
+    font-size: 171.5%;
+  }
+  h2 {
+    font-size: 150%;
+  }
+  h3 {
+    font-size: 128.5%;
+  }
+  h4,
+  h5,
+  h6 {
+    font-size: 114.3%;
+  }
+}

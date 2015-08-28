@@ -1,0 +1,121 @@
+@charset 'UTF-8';
+@import 'base';
+
+//////////
+// COLORS
+//////////
+$dark: #0f060b;
+$main: #304d5f;
+$light: #d6e5ba;
+$accent: #7c2923;
+
+$light-text: mix(white, $light, 25%);
+$dark-text: mix(black, $dark, 25%);
+
+.screen-reader-text {
+  @include hide;
+}
+
+header {
+  background: url('../img/palestine_flag_original.jpg') no-repeat center 75% scroll;
+  -webkit-background-size: 100%;
+  -moz-background-size: 100%;
+  -o-background-size: 100%;
+  background-size: 100%;
+
+  border-top: .2em solid $dark;
+  border-bottom: .2em solid $dark;
+
+  padding-top: 2em;
+  min-height: 400px;
+  text-align: left;
+
+  > * {
+    padding: 2% 20% 2% 10%;
+  }
+}
+
+#headline {
+  background-color: rgba($main, .5);
+  color: $light-text;
+
+  line-height: 100%;
+  margin-bottom: 2em;
+}
+
+#subheadline {
+  background-color: rgba($light, .5);
+  color: $dark;
+}
+
+main {
+  color: $dark-text;
+
+  section {
+    padding-left: 25%;
+    padding-right: 25%;
+  }
+}
+
+footer {
+  background-color: $dark;
+  border-bottom: .2em solid $light-text;
+  border-top: .2em solid $light-text;
+  color: $light;
+
+  padding-right: 5%;
+  text-align: right;
+
+  a {
+    color: $light-text;
+  }
+}
+
+//////////////////////// media queries ..................///////////////
+//////////////////////// media queries ..................///////////////
+//////////////////////// media queries ..................///////////////
+@media screen and (max-width: $break1) {
+}
+
+@media screen and (max-width: $break2) {
+  header {
+    min-height: 0;
+  }
+
+  main {
+    > blockquote,
+    > p,
+    > h2,
+    > h3,
+    > h4,
+    > h5,
+    > h6 {
+      padding-left: 15%;
+      padding-right: 15%;
+    }
+  }
+}
+
+@media screen and (max-width: $break3) {
+  header {
+    background-size: auto;
+
+    > * {
+      padding-left: 10%;
+      padding-right: 10%;
+    }
+  }
+
+  main {
+    > blockquote,
+    > p,
+    > h2,
+    > h3,
+    > h4,
+    > h5,
+    > h6 {
+      padding-left: 5%;
+      padding-right: 5%;
+    }
+  }
+}
