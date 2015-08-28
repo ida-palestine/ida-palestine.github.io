@@ -44,7 +44,7 @@ var google = { visualization: { Query: { setResponse: function (json) {
 
       // add the 'about' section
       if (rows[n].c[len-1].v !== null) {
-        payload += "<tfoot><tr colspan=\"6\">" + rows[n].c[len-1].v + "</tr></tfoot>";
+        payload += "<tfoot><tr><td colspan=\"6\">" + rows[n].c[len-1].v + "</td></tr></tfoot>";
       }
       payload += tableEnd;
     }
