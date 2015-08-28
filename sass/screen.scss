@@ -66,10 +66,19 @@ main {
   h4,
   h5,
   h6 {
-    padding-left: 10%;
-    padding-right: 10%;
+    padding-left: 20%;
+    padding-right: 20%;
   }
+}
 
+table {
+  margin-bottom: 1em;
+  margin-left: 5%;
+  margin-right: 5%;
+}
+
+td {
+  padding-right: 1em;
 }
 
 footer {
@@ -119,5 +128,10 @@ footer {
       padding-left: 5%;
       padding-right: 5%;
     }
+  }
+
+  table {
+    margin-left: 0;
+    margin-right: 0;
   }
 }
