@@ -51,10 +51,25 @@ header {
 main {
   color: $dark-text;
 
-  section {
+  h3,
+  h4,
+  h5,
+  h6 {
+    background-color: $main;
+    color: white;
+  }
+
+  blockquote,
+  p,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
     padding-left: 10%;
     padding-right: 10%;
   }
+
 }
 
 footer {
@@ -94,13 +109,13 @@ footer {
   }
 
   main {
-    > blockquote,
-    > p,
-    > h2,
-    > h3,
-    > h4,
-    > h5,
-    > h6 {
+    blockquote,
+    p,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
       padding-left: 5%;
       padding-right: 5%;
     }
