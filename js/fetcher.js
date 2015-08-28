@@ -12,7 +12,7 @@ var google = { visualization: { Query: { setResponse: function (json) {
   if (rows.reverse().length) {
 
     var tableStart = "<table><thead><tr><th>Country</th><th>State</th><th>City</th><th>Location</th><th>Starting Local Time</th><th>Contact</th></thead><tbody>";
-    var tableEnd = "</tbody></table><hr>";
+    var tableEnd = "</tbody></table>";
 
     // 'payload' is the HTML we inject into #events
     //
@@ -47,6 +47,9 @@ var google = { visualization: { Query: { setResponse: function (json) {
         payload += "<tfoot><tr><td colspan=\"6\">" + rows[n].c[len-1].v + "</td></tr></tfoot>";
       }
       payload += tableEnd;
+
+      // add a horizontal rule after all but the last table
+      if (n) payload += "<hr>";
     }
 
     var eventsSection = document.getElementById("events");
