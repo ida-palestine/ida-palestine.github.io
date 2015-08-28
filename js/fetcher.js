@@ -36,7 +36,7 @@ var google = { visualization: { Query: { setResponse: function (json) {
         // null, but still print the <td></td> below in order to
         // keep the columns aligned
         if (rows[n].c[i] && rows[n].c[i].v !== null) {
-          cellData = (i === 2) ? rows[n].c[i].f : rows[n].c[i].v;
+          cellData = rows[n].c[i].f || rows[n].c[i].v;
         }
         payload += "<td>" + cellData + "</td>";
       }
