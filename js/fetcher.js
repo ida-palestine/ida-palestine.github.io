@@ -11,14 +11,14 @@ var google = { visualization: { Query: { setResponse: function (json) {
   // reverse the order since we're using the while(n--) method
   if (rows.reverse().length) {
 
-    var tableStart = "<table><thead><tr><th>Starting Local Time</th><th>Country</th><th>State</th><th>City</th><th>Location</th><th>Contact</th></thead><tbody>";
-    var tableEnd = "</tbody></table>";
+    var tableStart = "<table><thead><tr><th>Country</th><th>State</th><th>City</th><th>Location</th><th>Starting Local Time</th><th>Contact</th></thead><tbody>";
+    var tableEnd = "</tbody></table><hr>";
 
     // 'payload' is the HTML we inject into #events
     //
     // create the HTML in a variable first so we only have to touch
     // the DOM once, otherwise performance goes down the 🚽
-    var payload = "<h3>Events</h3><p>Events are happening around the world! <a href=\"https://docs.google.com/forms/d/1w73TIPQwTlcmqRJ3IC9Oqd-YdtRvV-HL3xCyFtqjKHQ/viewform?usp=send_form\" title=\"Google Forms\">Let us know about yours!</a></p>";
+    var payload = "<h3>Events</h3><p><em>Events are happening around the world! <strong><a href=\"https://docs.google.com/forms/d/1w73TIPQwTlcmqRJ3IC9Oqd-YdtRvV-HL3xCyFtqjKHQ/viewform?usp=send_form\" title=\"Google Forms\">Let us know about yours!</a></strong></em></p>";
 
     var n = rows.length;
     while (n--) {
