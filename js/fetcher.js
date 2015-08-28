@@ -11,23 +11,26 @@ var google = { visualization: { Query: { setResponse: function (json) {
   // reverse the order since we're using the while(n--) method
   if (rows.reverse().length) {
 
-    var tableStart = "<table><caption>Events are happening around the world! <a href=\"https://docs.google.com/forms/d/1w73TIPQwTlcmqRJ3IC9Oqd-YdtRvV-HL3xCyFtqjKHQ/viewform?usp=send_form\" title=\"Google Forms\">Let us know about yours!</a></caption><thead><tr><th>Starting Local Time</th><th>Country</th><th>State/Province</th><th>City/Town</th><th>Location</th><th>Contact</th><th>About</th></thead><tbody>";
+    var tableStart = "<table><thead><tr><th>Starting Local Time</th><th>Country</th><th>State</th><th>City</th><th>Location</th><th>Contact</th></thead><tbody>";
     var tableEnd = "</tbody></table>";
 
     // 'payload' is the HTML we inject into #events
     //
     // create the HTML in a variable first so we only have to touch
     // the DOM once, otherwise performance goes down the 🚽
-    var payload = tableStart;
+    var payload = "";
 
     var n = rows.length;
     while (n--) {
+      payload += tableStart;
+
       var nClass = (n % 2) ? "odd" : "even";
       payload += "<tr class=\"" + nClass + "\">";
 
       var len = rows[n].c.length,
           i = 2;
-      for (i; i < len; i++) {
+      // len-1 in order to skip the 'about' section, we insert that as a <tfoot>
+      for (i; i < (len-1); i++) {
         var cellData = "";
         // leave cellData blank if the cell value is undefined or
         // null, but still print the <td></td> below in order to
@@ -38,9 +41,13 @@ var google = { visualization: { Query: { setResponse: function (json) {
         payload += "<td>" + cellData + "</td>";
       }
       payload += "</tr>";
-    }
 
-    payload += tableEnd;
+      // add the 'about' section
+      if (rows[n].c[len-1].v !== null) {
+        payload += "<tfoot><tr colspan=\"6\">" + rows[n].c[len-1].v + "</tr></tfoot>";
+      }
+      payload += tableEnd;
+    }
 
     var eventsSection = document.getElementById("events");
     eventsSection.innerHTML = payload;
