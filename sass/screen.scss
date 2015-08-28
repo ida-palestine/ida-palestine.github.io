@@ -6,10 +6,8 @@
 //////////
 $dark: #0f060b;
 $main: #304d5f;
-$light: #d6e5ba;
 $accent: #7c2923;
 
-$light-text: mix(white, $light, 25%);
 $dark-text: mix(black, $dark, 25%);
 
 .screen-reader-text {
@@ -87,9 +85,9 @@ tfoot {
 }
 
 hr {
-  background-color: $light;
-  border: .25em solid $light;
-  color: $light;
+  background-color: mix(white, $accent, 70%);
+  border: .25em solid mix(white, $accent, 70%);
+  color: mix(white, $accent, 70%);
 
   margin: 0;
 }
