@@ -75,23 +75,36 @@ table {
   margin-bottom: 1em;
   margin-left: 5%;
   margin-right: 5%;
+  margin-top: 1em;
 }
 
 td {
   padding-right: 1em;
 }
 
+tfoot {
+  border-top: 2px solid $main;
+}
+
+hr {
+  background-color: $light;
+  border: .25em solid $light;
+  color: $light;
+
+  margin: 0;
+}
+
 footer {
   background-color: $dark;
-  border-bottom: .2em solid $light-text;
-  border-top: .2em solid $light-text;
-  color: $light;
+  border-bottom: .2em solid $main;
+  border-top: .2em solid $main;;
+  color: $main;
 
   padding-right: 5%;
   text-align: right;
 
   a {
-    color: $light-text;
+    color: mix(white, $main, 50%);
   }
 }
 
