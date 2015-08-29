@@ -9,6 +9,7 @@ body {
 
 footer {
   font-style: italic;
+
   em {
     font-style: normal;
   }
@@ -34,8 +35,12 @@ $break3: 500px;
 /* apply a natural box layout model to all elements */
 // http://www.paulirish.com/2012/box-sizing-border-box-ftw/
 // YOU MIGHT HAVE TO SET BORDERS EVERYWHERE NOW
-*, *:before, *:after {
-  -moz-box-sizing: border-box; -webkit-box-sizing: border-box; box-sizing: border-box;
+*,
+*:before,
+*:after {
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
 }
 
 //////// MIXINS //////////////////
@@ -48,14 +53,17 @@ $break3: 500px;
 }
 
 @mixin inline($separator, $sep) {
-  ul, li {
+  ul,
+  li {
     /* http://www.alistapart.com/articles/taminglists/ */
     display: inline;
     margin: 0;
     padding-left: 0;
   }
+
   li + li {
     padding-left: $sep/2;
+
     &::before {
       font-style: normal;
       content: $separator;
@@ -69,24 +77,30 @@ $break3: 500px;
 body {
   font-size: 16pt;
 }
+
 h1 {
   font-size: 225%;
 }
+
 h2 {
   font-size: 150%;
 }
+
 h3 {
   font-size: 131.25%;
 }
+
 h4,
 h5,
 h6 {
   font-size: 112.5%;
 }
+
 h5,
 h6 {
   font-style: italic;
 }
+
 h6 {
   font-weight: normal;
 }
@@ -96,15 +110,19 @@ h6 {
   body {
     font-size: 14pt;
   }
+
   h1 {
     font-size: 225%;
   }
+
   h2 {
     font-size: 150%;
   }
+
   h3 {
     font-size: 131.25%;
   }
+
   h4,
   h5,
   h6 {
@@ -116,15 +134,19 @@ h6 {
   body {
     font-size: 12pt;
   }
+
   h1 {
     font-size: 171.5%;
   }
+
   h2 {
     font-size: 150%;
   }
+
   h3 {
     font-size: 128.5%;
   }
+
   h4,
   h5,
   h6 {
