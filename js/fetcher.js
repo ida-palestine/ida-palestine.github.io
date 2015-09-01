@@ -18,7 +18,7 @@ var google = { visualization: { Query: { setResponse: function (json) {
     //
     // create the HTML in a variable first so we only have to touch
     // the DOM once, otherwise performance goes down the 🚽
-    var payload = "<h3>Events</h3><p><em>Events are happening around the world! <strong><a href=\"https://docs.google.com/forms/d/1w73TIPQwTlcmqRJ3IC9Oqd-YdtRvV-HL3xCyFtqjKHQ/viewform?usp=send_form\" title=\"Google Forms\">Let us know about yours!</a></strong></em></p>";
+    var payload = "<h3>Events</h3><p><em>Events are happening around the world! <strong><a href=\"https://docs.google.com/forms/d/1w73TIPQwTlcmqRJ3IC9Oqd-YdtRvV-HL3xCyFtqjKHQ/viewform?usp=send_form\" title=\"Google Forms\">Let us know about yours!</a></strong></em></p><hr>";
 
     var n = rows.length;
     while (n--) {
