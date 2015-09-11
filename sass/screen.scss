@@ -77,13 +77,14 @@ main {
 
 table {
   margin-bottom: 1em;
-  margin-left: 5%;
-  margin-right: 5%;
+  margin-left: 1%;
+  margin-right: 1%;
   margin-top: 1em;
 }
 
-td {
-  padding-right: 1em;
+td + td,
+th + th {
+  padding-left: 10px;
 }
 
 tfoot {
@@ -125,6 +126,7 @@ footer {
   #subheadline {
     margin: 0;
   }
+
   header {
     background-size: auto;
     min-height: 0;
@@ -166,5 +168,10 @@ footer {
   table {
     margin-left: 0;
     margin-right: 0;
+  }
+
+  td + td,
+  th + th {
+    padding-left: 5px;
   }
 }
