@@ -33,8 +33,12 @@ header {
 }
 
 #headline {
-  background-color: rgba($main, .5);
-  color: white;
+  &,
+  a {
+    background-color: rgba($main, .5);
+    color: white;
+    text-decoration: none;
+  }
 
   line-height: 100%;
   margin-bottom: 1em;
