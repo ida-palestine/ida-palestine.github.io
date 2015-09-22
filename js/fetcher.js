@@ -35,10 +35,11 @@ var google = { visualization: { Query: { setResponse: function (json) {
         // leave cellData blank if the cell value is undefined or
         // null, but still print the <td></td> below in order to
         // keep the columns aligned
-        if (rows[n].c[i] && rows[n].c[i].v !== null) {
+        if (rows[n].c[i] && rows[n].c[i].v) {
           cellData = rows[n].c[i].f || rows[n].c[i].v;
         }
-        payload += "<td>" + cellData + "</td>";
+        // only make a table cell if there's text
+        if (cellData.trim()) payload += "<td>" + cellData + "</td>";
       }
       payload += "</tr>";
 
