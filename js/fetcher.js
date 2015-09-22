@@ -18,7 +18,7 @@ var google = { visualization: { Query: { setResponse: function (json) {
     //
     // create the HTML in a variable first so we only have to touch
     // the DOM once, otherwise performance goes down the 🚽
-    var payload = "<h3>Events</h3><p><em>Events are happening around the world! <strong><a href=\"https://docs.google.com/forms/d/1w73TIPQwTlcmqRJ3IC9Oqd-YdtRvV-HL3xCyFtqjKHQ/viewform?usp=send_form\" title=\"Google Forms\">Let us know about yours!</a></strong></em></p><hr>";
+    var payload = "<h3>Events</h3><p><em>Events are happening around the world! <strong><a href=\"https://docs.google.com/forms/d/1w73TIPQwTlcmqRJ3IC9Oqd-YdtRvV-HL3xCyFtqjKHQ/viewform?usp=send_form\" title=\"Google Forms\">Let us know about yours!</a></strong></em></p>";
 
     var n = rows.length;
     while (n--) {
@@ -29,8 +29,8 @@ var google = { visualization: { Query: { setResponse: function (json) {
 
       var len = rows[n].c.length,
           i = 2;
-      // len-1 in order to skip the 'about' section, we insert that as a <tfoot>
-      for (i; i < (len-1); i++) {
+
+      for (i; i < 8; i++) {
         var cellData = "";
         // leave cellData blank if the cell value is undefined or
         // null, but still print the <td></td> below in order to
@@ -39,18 +39,15 @@ var google = { visualization: { Query: { setResponse: function (json) {
           cellData = rows[n].c[i].f || rows[n].c[i].v;
         }
         // only make a table cell if there's text
-        if (cellData.trim()) payload += "<td>" + cellData + "</td>";
+        payload += "<td>" + cellData + "</td>";
       }
       payload += "</tr>";
 
       // add the 'about' section
-      if (rows[n].c[len-1].v !== null) {
-        payload += "<tfoot><tr><td colspan=\"6\">" + rows[n].c[len-1].v + "</td></tr></tfoot>";
+      if (rows[n].c[8]) {
+        payload += "<tfoot><tr><td colspan=\"6\">" + rows[n].c[8].v + "</td></tr></tfoot>";
       }
       payload += tableEnd;
-
-      // add a horizontal rule after all but the last table
-      if (n) payload += "<hr>";
     }
 
     var eventsSection = document.getElementById("events");

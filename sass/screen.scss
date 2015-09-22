@@ -80,27 +80,30 @@ main {
 }
 
 table {
-  margin-bottom: 1em;
-  margin-left: 1%;
-  margin-right: 1%;
-  margin-top: 1em;
+  border-bottom: .5em solid mix(white, $accent, 80%);
+
+  margin: 2em 0 0 0;
+  padding-left: 1%;
+  padding-right: 1%;
+
+  width: 100%;
 }
 
-td + td,
-th + th {
-  padding-left: 10px;
+td,
+th {
+  padding: 1%;
+  text-align: center;
+}
+
+td:nth-of-type(odd) {
+  background-color: mix(white, $accent, 80%);
 }
 
 tfoot {
-  border-top: 2px solid $main;
-}
-
-hr {
-  background-color: mix(white, $accent, 80%);
-  border: .25em solid mix(white, $accent, 80%);
-  color: mix(white, $accent, 80%);
-
-  margin: 0;
+  border-top: 4px solid mix(white, $accent, 80%);
+  td {
+    text-align: left;
+  }
 }
 
 footer {
