@@ -61,6 +61,11 @@ header {
 
 main {
   color: $dark;
+
+  // https://css-tricks.com/snippets/css/prevent-long-urls-from-breaking-out-of-container/
+  hyphens: auto;
+  overflow-wrap: break-word;
+  word-wrap: break-word;
 }
 
 h3,
