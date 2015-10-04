@@ -11,7 +11,7 @@ var google = { visualization: { Query: { setResponse: function (json) {
   // reverse the order since we're using the while(n--) method
   if (rows.reverse().length) {
 
-    var tableStart = "<table><thead><tr><th>Country</th><th>State</th><th>City</th><th>Location</th><th>Starting Local Time</th><th>Contact</th></thead><tbody>";
+    var tableStart = '<table class="tablesaw" data-tablesaw-sortable data-tablesaw-sortable-switch><thead><tr><th scope="col" data-tablesaw-sortable-col>Country</th><th scope="col" data-tablesaw-sortable-col>State</th><th scope="col" data-tablesaw-sortable-col>City</th><th scope="col" data-tablesaw-sortable-col>Location</th><th scope="col" data-tablesaw-sortable-col>Starting Local Time</th><th scope="col" data-tablesaw-sortable-col>Contact</th><th  scope="col" data-tablesaw-sortable-col>About</th></thead><tbody>';
     var tableEnd = "</tbody></table>";
 
     // 'payload' is the HTML we inject into #events
@@ -20,17 +20,16 @@ var google = { visualization: { Query: { setResponse: function (json) {
     // the DOM once, otherwise performance goes down the 🚽
     var payload = "<h3>Events</h3><p><em>Events are happening around the world! <strong><a href=\"https://docs.google.com/forms/d/1w73TIPQwTlcmqRJ3IC9Oqd-YdtRvV-HL3xCyFtqjKHQ/viewform?usp=send_form\" title=\"Google Forms\">Let us know about yours!</a></strong></em></p>";
 
+    payload += tableStart;
+
     var n = rows.length;
     while (n--) {
-      payload += tableStart;
-
       var nClass = (n % 2) ? "odd" : "even";
       payload += "<tr class=\"" + nClass + "\">";
 
-      var len = rows[n].c.length,
-          i = 2;
-
-      for (i; i < 8; i++) {
+      // Skip the first two columns and the trailing empty ones.
+      var i = 2;
+      for (i; i < 9; i++) {
         var cellData = "";
         // leave cellData blank if the cell value is undefined or
         // null, but still print the <td></td> below in order to
@@ -42,13 +41,8 @@ var google = { visualization: { Query: { setResponse: function (json) {
         payload += "<td>" + cellData + "</td>";
       }
       payload += "</tr>";
-
-      // add the 'about' section
-      if (rows[n].c[8]) {
-        payload += "<tfoot><tr><td colspan=\"6\">" + rows[n].c[8].v + "</td></tr></tfoot>";
-      }
-      payload += tableEnd;
     }
+    payload += tableEnd;
 
     var eventsSection = document.getElementById("events");
     eventsSection.innerHTML = payload;
