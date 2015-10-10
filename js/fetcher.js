@@ -3,9 +3,6 @@
 // executed when the jsonp response is received
 var google = { visualization: { Query: { setResponse: function (json) {
   "use strict";
-  // might as well leave this for debugging
-  console.log(json.table);
-
   var rows = json.table.rows;
 
   // reverse the order since we're using the while(n--) method
